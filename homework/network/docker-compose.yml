@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    network_mode: "host"
+    volumes:
+      - ./config/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - be-app
+      - fe-app
+  be-app:
+    image: nginx:latest
+    network_mode: "host"
+    container_name: be-app
+    volumes:
+      - ./config/be-app-nginx.conf:/etc/nginx/conf.d/default.conf
+  fe-app:
+    image: nginx:latest
+    container_name: fe-app
+    network_mode: "host"
+    volumes:
+      - ./config/fe-app-nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./config/fe/:/usr/share/nginx/html
