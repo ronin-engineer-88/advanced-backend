@@ -24,10 +24,10 @@ public class DistributedLockService implements LockService {
 
     private static long lockTimeout = 300000;
 
-    @Value("${app.transaction.lock.ttl}")
+    @Value("${app.transaction.lock.ttl:10000}")
     private long lockTTLInSecond;
 
-    @Value("${app.transaction.lock.timeout}")
+    @Value("${app.transaction.lock.timeout:300000}")
     private long lockTimeoutInSecond;
 
     @Autowired

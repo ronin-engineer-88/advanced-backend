@@ -33,7 +33,7 @@ import java.util.Map;
 @ConditionalOnProperty(value = "app.cache.redis.enable", havingValue = "true")
 public class RedisCacheConfig {
 
-    @Value("${application-short-name}")
+    @Value("${application-short-name:airlines-service}")
     private String applicationShortName;
 
     private RedisCacheConfiguration createCacheConfiguration(long timeoutInSeconds) {

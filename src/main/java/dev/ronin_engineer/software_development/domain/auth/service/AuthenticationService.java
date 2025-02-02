@@ -15,12 +15,13 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class AuthenticationService {
 
-    @Autowired
-    UserRepository userRepository;
+//    @Autowired
+//    UserRepository userRepository;
 
 
     public TokenResponse authenticate(LoginRequest request) {
-        User user = userRepository.findByUsername(request.getUsername());
+//        User user = userRepository.findByUsername(request.getUsername());
+        User user = null;
         if (user == null) {
             throw new BusinessException(ResponseCode.USERNAME_OR_PASSWORD_INVALID);
         }

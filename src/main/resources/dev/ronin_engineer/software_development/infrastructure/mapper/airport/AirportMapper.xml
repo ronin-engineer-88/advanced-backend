@@ -24,7 +24,7 @@
             updated_at,
             updated_by,
             data
-        FROM airlines.airport
+        FROM airport
     </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">

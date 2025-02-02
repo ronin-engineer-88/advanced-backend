@@ -1,0 +1,13 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: re_airlines_db
+    environment:
+      POSTGRES_DB: re_airlines
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - ../../sql/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+      - ../../sql/data.sql:/docker-entrypoint-initdb.d/02_data.sql
